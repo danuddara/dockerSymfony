@@ -1,6 +1,6 @@
 FROM alpine:3.15
 
-LABEL maintainer="Vincent Composieux <vincent.composieux@gmail.com>"
+LABEL maintainer=""
 
 RUN apk add --no-cache \
     coreutils \
@@ -33,6 +33,9 @@ RUN apk add --no-cache \
     php8-pecl-apcu \
     make \
     curl
+
+#run git install this is required to install symfony
+RUN apk add git
 
 # Enable php8-xdebug if $PHP_XDEBUG_MODE is not empty
 ARG PHP_XDEBUG_MODE=off
